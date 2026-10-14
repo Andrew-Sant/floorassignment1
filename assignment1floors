@@ -61,3 +61,56 @@ while (widthInput <= 0)
 }
 //saving the width from the user 
 width = widthInput;
+
+//Step 9:Ask the user what type of flooring they would like, by building a sentence using the variables created in
+//step 2 - to make it easy for the user, perhaps assign letters to each choice.
+Console.WriteLine("Choose a flooring type:");
+Console.WriteLine($"A) {flooringA} - ${priceA:F2}/sq.ft.");
+Console.WriteLine($"B) {flooringB} - ${priceB:F2}/sq.ft.");
+Console.WriteLine($"C) {flooringC} - ${priceC:F2}/sq.ft.");
+Console.Write("Enter choice (A, B or C): ");
+
+// Step 10: read and validate a single-letter choice
+string? choiceInput = Console.ReadLine();
+if (string.IsNullOrWhiteSpace(choiceInput) || choiceInput.Trim().Length != 1)
+{
+    Console.WriteLine("Error: please enter a single letter (A, B or C).");
+    return;
+}
+char choice = char.ToUpperInvariant(choiceInput.Trim()[0]);
+if (choice != 'A' && choice != 'B' && choice != 'C')
+{
+    Console.WriteLine("Error: invalid choice. Please select A, B or C.");
+    return;
+}
+
+//Step 11 and 12: Create a series of if() statements that correspond to each choice of flooring.
+//Inside each of the if() statements, do some math: get the area of the floor to be covered, and multiply that by the price of the selected floor type.
+double selectedPrice;
+string selectedName;
+if (choice == 'A')
+{
+    selectedPrice = priceA;
+    selectedName = flooringA;
+}
+else if (choice == 'B')
+{
+    selectedPrice = priceB;
+    selectedName = flooringB;
+}
+else
+{
+    selectedPrice = priceC;
+    selectedName = flooringC;
+}
+
+double area = Math.Round(length * width, 1); // area in sq.ft., one decimal
+double totalCost = area * selectedPrice;
+
+// Step 13: output the result
+Console.WriteLine();
+Console.WriteLine($"You selected: {selectedName} (Choice {choice})");
+Console.WriteLine($"Area: {area:F1} sq.ft.");
+Console.WriteLine($"Price per sq.ft.: ${selectedPrice:F2}");
+Console.WriteLine($"Total cost: ${totalCost:F2}");
+
