@@ -1,0 +1,70 @@
+x////Complete the individual C# Console Application assignment using Microsoft Visual Studio. Your program should calculate flooring costs based on room dimensions and the user's flooring choice. Follow the assignment instructions and refer to the attached rubric for grading criteria.
+
+////Submission Requirements:
+
+////Submit a screenshot showing your program’s working output.
+////Create a private GitHub repository and add me as a collaborator (shivi359@gmail.com).
+////Commit and push your work at each major development step using meaningful commit messages.
+////Share your GitHub repository link for grading.
+////Important: Failure to demonstrate clear and meaningful GitHub commits will result in a zero for Assignment 1.
+
+////setting the numbers as to what is will cost for base materials with no calculations so far
+double length;
+Console.WriteLine("Enter the length here please: ");
+
+while (!double.TryParse(Console.ReadLine(), out length))
+{
+    Console.WriteLine("That is an Invalid Input please try again: ");
+}
+Console.WriteLine($"The length is: {length}");
+
+double width;
+Console.WriteLine("Enter the Width here please: ");
+
+while (!double.TryParse(Console.ReadLine(), out width))
+{
+    Console.WriteLine("That is an Invalid Input please try again: ");
+}
+Console.WriteLine($"The Width is: {width}");
+
+double area = length * width;
+
+Console.WriteLine($"Your area for you room is: {area}");
+
+Console.WriteLine("What flooring would you like!\n(type A, B, C, or D)?");
+string carpetType = "     A) Carpet($3.00 per sqft)\r\n     B) Wood($7.00 per sqft)\r\n     C) Tile($8.00 per sqft)\r\n";
+
+// STEP 2a: Ask the user to pick a floor type and store it as a string
+string floorChoice = Console.ReadLine();
+// STEP 2b: Trim any whitespace from the input, and capitalize it
+floorChoice = floorChoice.Trim().ToUpper();
+// STEP 2c: Output the Floor choice
+Console.WriteLine($"You picked {floorChoice}.");
+
+//if a then tells them the cost per sqft
+if (carpetType == "A")
+{
+    Console.WriteLine("Nice pick that will be $3.00 per sqft");
+}
+else
+{
+    Console.WriteLine("That answer does not exist");
+}
+//if b then tells them the cost per sqft
+if (carpetType == "B")
+{
+    Console.WriteLine("Nice pick that will be $7.00 per sqft");
+}
+else
+{
+    Console.WriteLine("That answer does not exist");
+}
+//if c then tells them the cost per sqft
+if (carpetType == "C")
+{
+    Console.WriteLine("Nice pick that will be $8.00 per sqft");
+}
+else
+{
+    Console.WriteLine("That answer does not exist");
+}
