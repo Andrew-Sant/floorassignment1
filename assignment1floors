@@ -28,21 +28,31 @@ while( floorChoice != "A" && floorChoice != "B" &&  floorChoice != "C")
 double length;
 double width;
 ////asking user for lngth now 
-Console.WriteLine("Enter the length here please: ");
-double lengthInput;
-while (!double.TryParse(Console.ReadLine(), out lengthInput))
+Console.Write("Enter the length here please: ");
+double lengthInput = 0;
+while (lengthInput > 0)
 {
-    Console.WriteLine("That does not exist please try again: ");
+    if (lengthInput > 0)
+    {
+        Console.WriteLine("That is a invalid input please select a number");
+        lengthInput = Convert.ToDouble(Console.ReadLine());
+    }
+    else
+    {
+        Console.WriteLine($"Your number is {lengthInput}");
+    }
 }
-length = lengthInput;
-Console.WriteLine($"This is your number you inputed {length}");
-
-//getting width now 
-Console.WriteLine("Enter the width here please: ");
-double widthInput;
-while (!double.TryParse(Console.ReadLine(), out widthInput))
+Console.Write("Enter the width here please: ");
+double widthInput = 0;
+while (widthInput > 0)
 {
-    Console.WriteLine("That does not exist please try again: ");
+    if (widthInput > 0)
+    {
+        Console.WriteLine("That is a invalid input please select a number");
+        widthInput = Convert.ToDouble(Console.ReadLine());
+    }
+    else
+    {
+        Console.WriteLine($"Your number is {widthInput}");
+    }
 }
-width = widthInput;
-Console.WriteLine($"This is your number you inputed {width}");
