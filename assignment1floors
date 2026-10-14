@@ -29,10 +29,10 @@ double length;
 double width;
 ////asking user for lngth now 
 Console.Write("Enter the length here please: ");
-double lengthInput = 0;
-while (lengthInput > 0)
+double lengthInput = Convert.ToDouble(Console.ReadLine());
+while (lengthInput <= 0)
 {
-    if (lengthInput > 0)
+    if (lengthInput <= 0)
     {
         Console.WriteLine("That is a invalid input please select a number");
         lengthInput = Convert.ToDouble(Console.ReadLine());
@@ -42,11 +42,14 @@ while (lengthInput > 0)
         Console.WriteLine($"Your number is {lengthInput}");
     }
 }
+//saving length input from user
+length = lengthInput;
+//getting the width from the user
 Console.Write("Enter the width here please: ");
-double widthInput = 0;
-while (widthInput > 0)
+double widthInput = Convert.ToDouble(Console.ReadLine());
+while (widthInput <= 0)
 {
-    if (widthInput > 0)
+    if (widthInput <= 0)
     {
         Console.WriteLine("That is a invalid input please select a number");
         widthInput = Convert.ToDouble(Console.ReadLine());
@@ -56,3 +59,5 @@ while (widthInput > 0)
         Console.WriteLine($"Your number is {widthInput}");
     }
 }
+//saving the width from the user 
+width = widthInput;
