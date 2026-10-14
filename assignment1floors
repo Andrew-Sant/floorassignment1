@@ -1,18 +1,48 @@
+//making the flooring variables
+using System.Formats.Asn1;
 
 string flooringA = "HardWood";
 string flooringB = "Carpet";
 string flooringC = "Tile";
-
+//declaring the flooring variables prices
 double priceA = 8.95;
 double priceB = 9.95;
 double priceC = 10.95;
-
-Console.Write($"What type of flooring would you like for your room A.: ${flooringA}, B.:${flooringB}, C.: ${flooringC} ");
-
-string floorChoice = Console.ReadLine();
+//asking user for what type of floor they would like
+Console.Write($"What type of flooring would you like for your room A. {flooringA}, B. {flooringB}, C. {flooringC} ");
+//saving the floor choice
+string floorChoice = Console.ReadLine().ToUpper();
+while( floorChoice != "A" && floorChoice != "B" &&  floorChoice != "C")
+{
+    if (floorChoice != "A" && floorChoice != "B" && floorChoice != "C") 
+    { 
+        Console.WriteLine("That is a invalid input please select either A, B or C");
+        floorChoice = Console.ReadLine().ToUpper();
+    }
+    else
+    {
+        Console.WriteLine($"Your number is {floorChoice}");
+    }
+}
 
 double length;
 double width;
-
+////asking user for lngth now 
 Console.WriteLine("Enter the length here please: ");
-double lengthInput = Convert.ToInt32(Console.ReadLine());
+double lengthInput;
+while (!double.TryParse(Console.ReadLine(), out lengthInput))
+{
+    Console.WriteLine("That does not exist please try again: ");
+}
+length = lengthInput;
+Console.WriteLine($"This is your number you inputed {length}");
+
+//getting width now 
+Console.WriteLine("Enter the width here please: ");
+double widthInput;
+while (!double.TryParse(Console.ReadLine(), out widthInput))
+{
+    Console.WriteLine("That does not exist please try again: ");
+}
+width = widthInput;
+Console.WriteLine($"This is your number you inputed {width}");
